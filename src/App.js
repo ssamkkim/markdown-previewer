@@ -1,16 +1,16 @@
 import React from 'react'; 
-import './App.css';
+import './App.scss';
+import { marked } from "marked";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: ''
+      input: '# Welcome to my React Markdown Previewer!\n## This is a sub-heading...\n[links](https://www.google.com)\n\n```<div></div>```\n1. List Item 1\n1. List Item 2\n1. List Item 3\n> Block Quote\n\n**Bold Text**\n![Google Logo](https://1000logos.net/wp-content/uploads/2021/05/Google-logo.png)'
     };
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(event) {
-    console.log(event.target.value);
     this.setState({
       input: event.target.value
     });
@@ -18,8 +18,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <textarea id="editor" onChange={this.handleChange} />
-        <p id="preview">{this.state.input}</p>
+        <textarea id="editor" value={this.state.input} onChange={this.handleChange} />
+        <div id="preview" dangerouslySetInnerHTML={{__html: marked.parse(this.state.input)}}></div>
       </div>
     );
   }
