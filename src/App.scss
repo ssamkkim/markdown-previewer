@@ -1,0 +1,33 @@
+.container { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    #editor {
+        display: flex;
+        justify-content: center;
+        resize: vertical;
+        width: 750px;
+        min-height: 200px;
+        margin: 50px 50px 20px 50px;
+        padding: 5px;
+    }
+
+    #preview {
+        width: 50%;
+        height: 100%;
+        border: 1px black solid;
+        padding: 20px;
+        margin: 20px 50px 50px 50px;
+        img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+        background-color: lightblue;
+        code {
+            background-color: white;
+            display: inline-block;
+            padding: 4px;
+        }
+    }
+}
